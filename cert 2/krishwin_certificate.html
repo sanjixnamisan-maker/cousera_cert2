@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Certificate – Introduction to the Nonprofit Sector | Coursera</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #f5f5f5;
+    color: #1f1f1f;
+    min-height: 100vh;
+  }
+
+  /* ── TOP NAV ── */
+  nav {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 32px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .nav-logo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #0056d2;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: #1f1f1f; }
+
+  /* ── PAGE WRAPPER ── */
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* breadcrumb */
+  .breadcrumb {
+    font-size: 13px;
+    color: #636363;
+    margin-bottom: 12px;
+  }
+
+  /* big title */
+  .course-title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.25;
+    max-width: 780px;
+    margin-bottom: 32px;
+    color: #1a1a1a;
+  }
+
+  /* ── TWO-COLUMN LAYOUT ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* ── LEFT PANEL ── */
+  .left-panel { display: flex; flex-direction: column; gap: 28px; }
+
+  /* completion card */
+  .completion-card {
+    background: #eef2ff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: #c8d0e0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .avatar svg { width: 32px; height: 32px; fill: #7a8aaa; }
+  .check-badge {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 20px; height: 20px;
+    background: #0056d2;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid #eef2ff;
+  }
+  .check-badge svg { width: 10px; height: 10px; fill: #fff; }
+
+  .card-info { flex: 1; }
+  .card-info h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .card-info .meta {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+  }
+  .card-info .hours {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+  }
+  .card-info p {
+    font-size: 14px;
+    color: #3a3a3a;
+    line-height: 1.55;
+  }
+  .card-info p a {
+    color: #0056d2;
+    text-decoration: underline;
+  }
+
+  /* enroll section */
+  .enroll-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .univ-logo {
+    width: 48px; height: 48px;
+    flex-shrink: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff;
+    overflow: hidden;
+  }
+  .univ-logo img { width: 100%; }
+  .enroll-text { flex: 1; }
+  .enroll-text a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0056d2;
+    text-decoration: underline;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .enroll-text .univ-name { font-size: 14px; color: #636363; margin-bottom: 6px; }
+  .stars { color: #f5a623; font-size: 14px; }
+  .stars span { color: #3a3a3a; font-size: 13px; }
+  .enroll-btn {
+    background: #0056d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+  .enroll-btn:hover { background: #0041a8; }
+
+  /* skills */
+  .skills-section h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #3a3a3a;
+    margin-bottom: 12px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 13px;
+    color: #1a1a1a;
+  }
+
+  /* ── RIGHT PANEL — CERTIFICATE ── */
+  .cert-frame {
+    background: #fff;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 6px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: relative;
+  }
+
+  /* The certificate itself */
+  .certificate {
+    border: 2px solid #b8c8d8;
+    padding: 32px 36px 28px;
+    font-family: 'Source Sans 3', sans-serif;
+    position: relative;
+    background: #fafcff;
+    min-height: 480px;
+  }
+
+  /* corner decorations */
+  .cert-corner {
+    position: absolute;
+    width: 30px; height: 30px;
+    border-color: #7a9ab8;
+    border-style: solid;
+  }
+  .cert-corner.tl { top: 8px; left: 8px; border-width: 2px 0 0 2px; }
+  .cert-corner.tr { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
+  .cert-corner.bl { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
+  .cert-corner.br { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+  /* right banner */
+  .cert-right-banner {
+    position: absolute;
+    top: 0; right: 0;
+    width: 180px;
+    height: 100%;
+    background: linear-gradient(160deg, #e8edf4 0%, #d2dce8 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 32px;
+    gap: 20px;
+  }
+  .banner-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3a5070;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* coursera seal */
+  .coursera-seal {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    border: 3px solid #7a9ab8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    position: relative;
+    margin-top: 8px;
+  }
+  .seal-ring {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px dashed #7a9ab8;
+  }
+  .seal-text-top {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3a5070;
+    position: absolute;
+    top: 18px;
+  }
+  .seal-text-bottom {
+    font-size: 6px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3a5070;
+    position: absolute;
+    bottom: 14px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .coursera-wordmark {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0056d2;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* cert content (left portion) */
+  .cert-content {
+    margin-right: 190px;
+  }
+
+  /* SUNY logo placeholder */
+  .suny-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .suny-circle {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    border: 3px solid #0056d2;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .suny-circle span {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0056d2;
+    letter-spacing: -1px;
+  }
+  .suny-text {
+    font-size: 13px;
+    color: #3a3a3a;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .cert-date {
+    font-size: 13px;
+    color: #636363;
+    margin-bottom: 10px;
+  }
+  .cert-name {
+    font-family: 'Source Serif 4', serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .cert-has-completed {
+    font-size: 13px;
+    color: #636363;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .cert-course-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .cert-authorized {
+    font-size: 11.5px;
+    color: #636363;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  /* signatures */
+  .cert-sigs {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 18px;
+  }
+  .sig-block {}
+  .sig-line {
+    width: 140px;
+    height: 38px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 4px;
+  }
+  /* SVG signature lines */
+  .sig-svg { width: 130px; height: 30px; }
+  .sig-label {
+    font-size: 10px;
+    color: #3a3a3a;
+    line-height: 1.5;
+  }
+
+  /* verify */
+  .cert-verify {
+    font-size: 10px;
+    color: #636363;
+    line-height: 1.5;
+    text-align: right;
+    margin-right: 0;
+  }
+  .cert-verify a { color: #0056d2; text-decoration: underline; }
+
+  .cert-fine-print {
+    font-size: 9px;
+    color: #888;
+    line-height: 1.5;
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+  }
+
+  @media (max-width: 860px) {
+    .two-col { grid-template-columns: 1fr; }
+    .course-title { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">coursera</a>
+</nav>
+
+<div class="page">
+  <div class="breadcrumb">Course Certificate</div>
+  <h1 class="course-title">Introduction to the Nonprofit Sector, Nonprofit Organizations, Nonprofit Leadership and Governance</h1>
+
+  <div class="two-col">
+
+    <!-- LEFT -->
+    <div class="left-panel">
+
+      <!-- Completion card -->
+      <div class="completion-card">
+        <div class="avatar-wrap">
+          <div class="avatar">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          </div>
+          <div class="check-badge">
+            <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="card-info">
+          <h2>Completed by Krishwin D S</h2>
+          <div class="meta">January 29, 2026</div>
+          <div class="hours">11 hours (approximately)</div>
+          <p>Krishwin D S's account is verified. Coursera certifies their successful completion of <a href="#">Introduction to the Nonprofit Sector, Nonprofit Organizations, Nonprofit Leadership and Governance</a></p>
+        </div>
+      </div>
+
+      <!-- Enroll section -->
+      <div class="enroll-section">
+        <div class="univ-logo">
+          <!-- UB text logo approximation -->
+          <svg viewBox="0 0 48 48" width="48" height="48">
+            <rect width="48" height="48" fill="#005bbb"/>
+            <text x="24" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#fff" font-family="serif">UB</text>
+          </svg>
+        </div>
+        <div class="enroll-text">
+          <a href="#">Introduction to the Nonprofit Sector, Nonprofit Organizations, Nonprofit Leadership and Governance</a>
+          <div class="univ-name">University at Buffalo</div>
+          <div class="stars">★★★★☆ <span>4.4 (215 ratings) | 35,961 already enrolled</span></div>
+        </div>
+        <button class="enroll-btn">Enroll for Free</button>
+      </div>
+
+      <!-- Skills -->
+      <div class="skills-section">
+        <h3>Skills you will gain</h3>
+        <div class="tags">
+          <span class="tag">Organizational Effectiveness</span>
+          <span class="tag">Leadership and Management</span>
+          <span class="tag">Philanthropy</span>
+          <span class="tag">Peer Review</span>
+          <span class="tag">Performance Review</span>
+          <span class="tag">Public Administration</span>
+          <span class="tag">Decision Making</span>
+          <span class="tag">Organizational Leadership</span>
+          <span class="tag">Analysis</span>
+          <span class="tag">Organizational Structure</span>
+          <span class="tag">Community Development</span>
+          <span class="tag">Discussion Facilitation</span>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- RIGHT — Certificate Image -->
+    <div class="cert-frame">
+      <img src="2.pdf.png" style="width: 100%; height: auto; border-radius: 4px;">
+    </div><!-- /cert-frame -->
+
+  </div><!-- /two-col -->
+</div>
+
+</body>
+</html>
